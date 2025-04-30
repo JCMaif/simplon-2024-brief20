@@ -128,7 +128,7 @@ section th:fragment="content">
     </div>
 </section>
 ```
-* On suit la même structure pour les autres pages.
+* On suit la même structure pour les autres pages (seules les login et register ont été modifiées pour l'instant).
 
 * Modification du controller :
 
@@ -139,6 +139,10 @@ section th:fragment="content">
         return isHtmx ? "fragments/login" : "pages/users/login";
     }
 ```
+
+* Maintenant que la structure thymeleaf est optimisée, je peux ajouter les fonctionnalités de htmx aux fragments.
+
+** En cours **
 
 
 ### Divers

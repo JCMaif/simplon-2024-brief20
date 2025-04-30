@@ -1,7 +1,7 @@
 
 <section th:fragment="content">
     <h1>Login</h1>
-    <form th:action="@{/login}" method="post">
+    <form th:action="@{/login}" method="post" >
         <label>Username: <input type="text" name="username" required/></label><br/>
         <label>Password: <input type="password" name="password" required/></label><br/>
         <button type="submit">Login</button>
@@ -10,7 +10,4 @@
     <div th:if="${param.error}">
         <p style="color:red">Invalid username or password.</p>
     </div>
-<!--    <div th:if="${param.logout}">-->
-<!--        <p>Logged out successfully.</p>-->
-<!--    </div>-->
 </section>

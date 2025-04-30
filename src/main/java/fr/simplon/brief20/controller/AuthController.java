@@ -1,5 +1,6 @@
 package fr.simplon.brief20.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,8 +23,9 @@ public class AuthController {
     private final PasswordEncoder passwordEncoder;
 
     @GetMapping("/login")
-    public String login() {
-        return "pages/login";
+    public String login(HttpServletRequest request) {
+        boolean isHtmx = "true".equals(request.getHeader("HX-Request"));
+        return isHtmx ? "fragments/login" : "pages/users/login";
     }
 
     @GetMapping("/register")
@@ -43,6 +45,11 @@ public class AuthController {
         .build()
         );
         model.addAttribute("registerSuccess", true);
-        return "pages/login";
+        return "pages/users/login";
+    }
+
+    @GetMapping("/logout")
+    public String handleLogoutRedirect() {
+        return "redirect:/login?logout";
     }
 }

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${pageTitle}">yaCRM</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css"/>
+    <script src="/js/htmx.min.js"></script>
+</head>
+<body>
+<header id="header" th:replace="~{/fragments/navbar}">
+</header>
+
+<main id="content" >
+    <div th:replace="~{::content}"></div>
+
+</main>
+
+<div th:if="${error}" class="alert alert-danger text-center" role="alert">
+    <span th:text="${error}"></span>
+</div>
+
+<footer id="footer" th:replace="~{/fragments/footer}">
+    <div>Loading footer...</div>
+</footer>
+
+<script type="module" src="/js/cookieconsent-config.js"></script>
+</body>
+</html>

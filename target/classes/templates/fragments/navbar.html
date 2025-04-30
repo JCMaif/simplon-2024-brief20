@@ -12,7 +12,10 @@
             <a th:href="@{/documents}" >Documents</a>
         </div>
         <div class="navbar-actions">
-            <a th:href="@{/logout}" class="button">Logout</a>
+            <form th:action="@{/logout}" method="post">
+                <button type="submit" class="button">Logout</button>
+            </form>
         </div>
+
     </div>
 </nav>

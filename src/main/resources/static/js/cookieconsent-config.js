@@ -53,6 +53,8 @@ CookieConsent.run({
                                 headers: {
                                     name: "Necessary Cookie",
                                     domain: "Domain",
+                                    description: "Description",
+                                    expiration: "Expiration",
                                 },
                                 body: [
                                     {
@@ -96,6 +98,8 @@ CookieConsent.run({
                                 headers: {
                                     name: "Functional Cookie",
                                     domain: "Domain",
+                                    description: "Description",
+                                    expiration: "Expiration",
                                 },
                                 body: [
                                     {

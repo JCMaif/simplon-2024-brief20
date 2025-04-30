@@ -6,7 +6,7 @@
     <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
 <body>
-    <header th:replace="components/navbar :: navbar"></header>
+    <header th:replace="fragments/navbar :: navbar"></header>
     <main>
         <h1>Meetings</h1>
         <a th:href="@{/meetings/create}">Create Meeting</a>
@@ -29,6 +29,6 @@
             </tr>
         </table>
     </main>
-    <footer th:replace="components/footer :: footer"></footer>
+    <footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <header th:replace="components/navbar :: navbar"></header>
+    <main>
+        <h1>Users</h1>
+        <a th:href="@{/users/create}">Create User</a>
+        <table>
+            <tr><th>ID</th><th>Username</th><th>Role</th><th>Actions</th></tr>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.username}"></td>
+                <td th:text="${user.role}"></td>
+                <td>
+                    <form th:action="@{'/users/edit/' + ${user.id}}" method="get" style="display:inline;">
+                        <button type="submit">Edit</button>
+                    </form>
+                    <form th:action="@{'/users/delete/' + ${user.id}}" method="post" style="display:inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </main>
+    <footer th:replace="components/footer :: footer"></footer>
+</body>
+</html>

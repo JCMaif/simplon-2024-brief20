@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Notifications</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <header th:replace="components/navbar :: navbar"></header>
+    <main>
+        <h1>Notifications</h1>
+        <table>
+            <tr><th>ID</th><th>User</th><th>Message</th><th>Type</th><th>Read</th><th>Actions</th></tr>
+            <tr th:each="notification : ${notifications}">
+                <td th:text="${notification.id}"></td>
+                <td th:text="${notification.user.fullName}"></td>
+                <td th:text="${notification.message}"></td>
+                <td th:text="${notification.type}"></td>
+                <td th:text="${notification.read}"></td>
+                <td>
+                    <form th:action="@{'/notifications/mark-read/' + ${notification.id}}" method="post" style="display:inline;">
+                        <button type="submit">Mark as Read</button>
+                    </form>
+                    <form th:action="@{'/notifications/delete/' + ${notification.id}}" method="post" style="display:inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </main>
+    <footer th:replace="components/footer :: footer"></footer>
+</body>
+</html>

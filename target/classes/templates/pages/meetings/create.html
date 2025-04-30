@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Meeting</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <header th:replace="components/navbar :: navbar"></header>
+    <main>
+        <h1>Create Meeting</h1>
+        <form th:action="@{/meetings}" th:object="${meeting}" method="post">
+            <label>Employee ID: <input type="number" th:field="*{employee}" required/></label><br/>
+            <label>Customer ID: <input type="number" th:field="*{customer}" required/></label><br/>
+            <label>Date/Time: <input type="datetime-local" th:field="*{dateTime}" required/></label><br/>
+            <label>Report: <input type="text" th:field="*{report}"/></label><br/>
+            <button type="submit">Create</button>
+        </form>
+    </main>
+    <footer th:replace="components/footer :: footer"></footer>
+</body>
+</html>

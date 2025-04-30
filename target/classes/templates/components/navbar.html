@@ -1,0 +1,18 @@
+<nav th:fragment="navbar">
+    <div class="navbar-container">
+        <div class="navbar-logo">
+            <span class="logo-icon">🎨</span>
+            <span class="logo-text">yaCRM</span>
+        </div>
+        <div class="navbar-links">
+            <a th:href="@{/}" >Dashboard</a>
+            <a th:href="@{/users}" >Users</a>
+            <a th:href="@{/meetings}" >Meetings</a>
+            <a th:href="@{/notifications}" >Notifications</a>
+            <a th:href="@{/documents}" >Documents</a>
+        </div>
+        <div class="navbar-actions">
+            <a th:href="@{/logout}" class="button">Logout</a>
+        </div>
+    </div>
+</nav>

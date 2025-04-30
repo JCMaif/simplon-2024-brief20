@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <header th:replace="components/navbar :: navbar"></header>
+    <main>
+        <h1>Welcome to the CRM Dashboard</h1>
+        <p>Select a section from the navigation bar.</p>
+    </main>
+    <footer th:replace="components/footer :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Document</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <header th:replace="components/navbar :: navbar"></header>
+    <main>
+        <h1>Upload Document</h1>
+        <form th:action="@{/documents/upload}" th:object="${document}" method="post" enctype="multipart/form-data">
+            <label>File: <input type="file" th:field="*{file}" accept=".pdf,.doc,.docx,.odt,.txt,.md" required/></label>
+            <label>Description: <textarea th:field="*{description}"></textarea></label>
+            <button type="submit">Upload</button>
+        </form>
+    </main>
+    <footer th:replace="components/footer :: footer"></footer>
+</body>
+</html>

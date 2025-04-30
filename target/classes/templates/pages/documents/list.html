@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Documents</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <header th:replace="components/navbar :: navbar"></header>
+    <main>
+        <h1>Documents</h1>
+        <a th:href="@{/documents/upload}">Upload Document</a>
+        <table>
+            <tr><th>ID</th><th>User</th><th>Filename</th><th>Actions</th></tr>
+            <tr th:each="document : ${documents}">
+                <td th:text="${document.id}"></td>
+                <td th:text="${document.user.fullName}"></td>
+                <td th:text="${document.filename}"></td>
+                <td>
+                    <form th:action="@{'/documents/download/' + ${document.id}}" method="get" style="display:inline;">
+                        <button type="submit">Download</button>
+                    </form>
+                    <form th:action="@{'/documents/delete/' + ${document.id}}" method="post" style="display:inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </main>
+    <footer th:replace="components/footer :: footer"></footer>
+</body>
+</html>

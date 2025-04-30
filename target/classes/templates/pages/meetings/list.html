@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Meetings</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <header th:replace="components/navbar :: navbar"></header>
+    <main>
+        <h1>Meetings</h1>
+        <a th:href="@{/meetings/create}">Create Meeting</a>
+        <table>
+            <tr><th>ID</th><th>Employee</th><th>Customer</th><th>Date/Time</th><th>Report</th><th>Actions</th></tr>
+            <tr th:each="meeting : ${meetings}">
+                <td th:text="${meeting.id}"></td>
+                <td th:text="${meeting.employee.fullName}"></td>
+                <td th:text="${meeting.customer.fullName}"></td>
+                <td th:text="${meeting.dateTime}"></td>
+                <td th:text="${meeting.report}"></td>
+                <td>
+                    <form th:action="@{'/meetings/edit/' + ${meeting.id}}" method="get" style="display:inline;">
+                        <button type="submit">Edit</button>
+                    </form>
+                    <form th:action="@{'/meetings/delete/' + ${meeting.id}}" method="post" style="display:inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </main>
+    <footer th:replace="components/footer :: footer"></footer>
+</body>
+</html>

@@ -3,24 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css"/>
 </head>
 <body>
-    <header th:replace="components/navbar :: navbar"></header>
-    <main>
-        <h1>Login</h1>
-        <form th:action="@{/login}" method="post">
-            <label>Username: <input type="text" name="username" required/></label><br/>
-            <label>Password: <input type="password" name="password" required/></label><br/>
-            <button type="submit">Login</button>
-        </form>
-        <div th:if="${param.error}">
-            <p style="color:red">Invalid username or password.</p>
-        </div>
-        <div th:if="${param.logout}">
-            <p>Logged out successfully.</p>
-        </div>
-    </main>
-    <footer th:replace="components/footer :: footer"></footer>
+<header th:replace="components/navbar :: navbar"></header>
+<main>
+    <h1>Login</h1>
+    <form th:action="@{/login}" method="post">
+        <label>Username: <input type="text" name="username" required/></label><br/>
+        <label>Password: <input type="password" name="password" required/></label><br/>
+        <button type="submit">Login</button>
+        <a th:href="@{/register}">Register</a>
+    </form>
+    <div th:if="${param.error}">
+        <p style="color:red">Invalid username or password.</p>
+    </div>
+    <div th:if="${param.logout}">
+        <p>Logged out successfully.</p>
+    </div>
+    <script type="module" src="/js/cookieconsent-config.js"></script>
+
+</main>
+<footer th:replace="components/footer :: footer"></footer>
 </body>
 </html>

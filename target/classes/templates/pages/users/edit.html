@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit User</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <header th:replace="components/navbar :: navbar"></header>
+    <main>
+        <h1>Edit User</h1>
+        <form th:action="@{'/users/edit/' + ${user.id}}" th:object="${user}" method="post">
+            <label>Username: <input type="text" th:field="*{username}" required/></label><br/>
+            <label>Password: <input type="password" th:field="*{password}" required/></label><br/>
+            <label>Role:
+                <select th:field="*{role}">
+                    <option value="ADMIN">Admin</option>
+                    <option value="EMPLOYEE">Employee</option>
+                    <option value="CUSTOMER">Customer</option>
+                </select>
+            </label><br/>
+            <button type="submit">Update</button>
+        </form>
+    </main>
+    <footer th:replace="components/footer :: footer"></footer>
+</body>
+</html>

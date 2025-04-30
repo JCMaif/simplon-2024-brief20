@@ -128,7 +128,7 @@ section th:fragment="content">
     </div>
 </section>
 ```
-* On suit la même structure pour les autres pages (seules les login et register ont été modifiées pour l'instant).
+* On suit la même structure pour les autres pages (seules les login, dashboard et register ont été modifiées pour l'instant).
 
 * Modification du controller :
 
